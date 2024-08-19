@@ -1,6 +1,6 @@
 export const toDollar = (amount: number = 0) => {
-  return new Intl.NumberFormat("en-BW", {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "BWP",
+    currency: "USD",
   }).format(amount);
 };
