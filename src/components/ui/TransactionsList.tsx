@@ -3,6 +3,7 @@ import { toDollar } from "../../lib/convertCurrency";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useFetchTransactions } from "../../hooks/useFetchTransactions";
+import { Card, CardContent } from "@/components/ui/card";
 
 type Props = {};
 
@@ -27,48 +28,37 @@ const TransactionsList = (props: Props) => {
       <div className="mt-[3rem]">
         {/* header */}
         <div className="flex justify-between">
-          <h3 className="font-min uppercase underline text-blue-500">
+          <h3 className="font-sans uppercase underline text-blue-500">
             Recent Transactions
           </h3>
           {transactions && (
-            <p className="border border-blue-500 py-2 px-4 font-min rounded text-blue-500">
+            <p className="border border-blue-500 py-2 px-4 font-sans rounded text-blue-500">
               {transactions.length}
             </p>
           )}
         </div>
         {/* Body */}
-        {transactions &&
-          transactions.map((transaction: any) => (
-            <div
-              key={transaction.id}
-              onClick={() => setModalTransactionsOpen(transaction.id)}
-              className="flex justify-between mt-[2rem] px-2 py-4 rounded bg-blue-50/40"
-            >
-              <div>
-                <h3 className="font-min text-blue-800 capitalize">
-                  {transaction.remark
-                    ? transaction.remark.substr(0, 18)
-                    : "No Remarks"}
-                  ...
-                </h3>
-                <p className="font-light font-min">{transaction.date}</p>
-              </div>
-              <div>
-                <p
-                  className={
-                    transaction.approved
-                      ? "font-min uppercase text-green-600"
-                      : "font-min uppercase text-yellow-500"
-                  }
-                >
-                  {transaction.approved ? "approved" : "pending"}
-                </p>
-                <p className="font-min font-normal">
-                  {toDollar(transaction.amount)}
-                </p>
-              </div>
-            </div>
-          ))}
+        <Card className="my-3 py-4">
+          <CardContent className="grid gap-8">
+            {transactions &&
+              transactions.map((transaction: any, index: number) => (
+                <div className="flex items-center gap-4" key={index}>
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                      {transaction.remark}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {transaction.id}
+                    </p>
+                  </div>
+                  <div className="ml-auto font-medium">
+                    {toDollar(transaction.amount)}
+                    <p className="text-neutral-400">{transaction.date}</p>
+                  </div>
+                </div>
+              ))}
+          </CardContent>
+        </Card>
       </div>
       <Modal open={isOpen} close={setIsOpen} transaction={modalTransactions} />
     </>
@@ -108,7 +98,7 @@ const Modal = ({ open, close, transaction }: any) => {
             className="bg-white md:w-[40%] w-[80%] mx-auto rounded p-4"
           >
             <div className="flex items-center justify-between">
-              <h4 className="text-2xl font-min font-normal">Transaction</h4>
+              <h4 className="text-2xl font-sans font-normal">Transaction</h4>
               <button className="p-4" onClick={() => close(!open)}>
                 <X />
               </button>
@@ -116,37 +106,37 @@ const Modal = ({ open, close, transaction }: any) => {
             <hr />
             {/* body */}
             <div>
-              <div className="font-min flex justify-between items-center py-3">
+              <div className="font-sans flex justify-between items-center py-3">
                 <h4 className="font-light">Reference</h4>
                 <p className="font-mono">{transaction.id}</p>
               </div>
               <hr />
-              <div className="font-min flex justify-between items-center py-3">
+              <div className="font-sans flex justify-between items-center py-3">
                 <h4 className="font-light">Amount</h4>
                 <p>{toDollar(transaction.amount)}</p>
               </div>
               <hr />
-              <div className="font-min flex justify-between items-center py-3">
+              <div className="font-sans flex justify-between items-center py-3">
                 <h4 className="font-light">Status</h4>
                 <p
                   className={
                     transaction.approved
-                      ? "font-min uppercase text-green-600"
-                      : "font-min uppercase text-yellow-500"
+                      ? "font-sans uppercase text-green-600"
+                      : "font-sans uppercase text-yellow-500"
                   }
                 >
                   {transaction.approved ? "approved" : "pending"}
                 </p>
               </div>
               <hr />
-              <div className="font-min flex justify-between items-center py-3">
+              <div className="font-sans flex justify-between items-center py-3">
                 <h4 className="font-light">Type</h4>
-                <p className="font-min">{transaction.type}</p>
+                <p className="font-sans">{transaction.type}</p>
               </div>
               <hr />
-              <div className="font-min flex justify-between items-center py-3">
+              <div className="font-sans flex justify-between items-center py-3">
                 <h4 className="font-light">Date</h4>
-                <p className="font-min ">{transaction.date}</p>
+                <p className="font-sans ">{transaction.date}</p>
               </div>
             </div>
           </motion.main>

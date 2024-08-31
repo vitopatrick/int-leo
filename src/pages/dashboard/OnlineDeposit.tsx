@@ -80,27 +80,27 @@ const OnlineDeposit = (props: Props) => {
       onSubmit={handleSubmit(addToFireStoreRecord)}
     >
       <div>
-        <h4 className="font-min uppercase font-normal py-3 underline tracking-widest text-slate-900">
+        <h4 className="font-sans uppercase font-normal py-3 underline tracking-widest text-slate-900">
           Online Deposit
         </h4>
       </div>
       {/* amount */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Amount
         </label>
         <input
           type="text"
           {...register("amount")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.amount?.message}
         </p>
       </div>
       {/* address */}
       <div className="bg-slate-400/20 p-2 rounded space-y-3">
-        <h4 className="uppercase text-blue-500 tracking-widest text-xs font-min  underline">
+        <h4 className="uppercase text-blue-500 tracking-widest text-xs font-sans  underline">
           Bitcoin Address
         </h4>
         <p className="font-mono text-sm">
@@ -109,21 +109,21 @@ const OnlineDeposit = (props: Props) => {
       </div>
       {/* Remarks */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Remarks" className="font-light font-min">
+        <label htmlFor="Remarks" className="font-light font-sans">
           Remarks
         </label>
         <textarea
           {...register("remarks")}
-          className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize pt-1"
+          className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize pt-1"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.remarks?.message}
         </p>
       </div>
       <button
         type="submit"
         disabled={!isValid}
-        className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
       >
         CONTINUE
       </button>

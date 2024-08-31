@@ -98,15 +98,15 @@ const InternationalTransferForm = (props: Props) => {
     >
       {/* amount */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Amount" className="font-light font-min">
+        <label htmlFor="Amount" className="font-light font-sans">
           Amount
         </label>
         <input
           type="text"
           {...register("amount")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.amount?.message}
         </p>
       </div>
@@ -114,83 +114,83 @@ const InternationalTransferForm = (props: Props) => {
       <div className="flex flex-col gap-2 my-4">
         <label
           htmlFor="Beneficiary Account Name"
-          className="font-light font-min"
+          className="font-light font-sans"
         >
           Beneficiary Account Name
         </label>
         <input
           type="text"
           {...register("beneficiary_name")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.beneficiary_name?.message}
         </p>
       </div>
       {/* bank Name */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Bank Name
         </label>
         <input
           type="text"
           {...register("bankName")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.bankName?.message}
         </p>
       </div>
       {/* Beneficiary Account number */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Beneficiary Account Number
         </label>
         <input
           type="text"
           {...register("beneficiary_account_number")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.beneficiary_account_number?.message}
         </p>
       </div>
       {/* swift code */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Swift Code
         </label>
         <input
           type="text"
           {...register("swift_code")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.swift_code?.message}
         </p>
       </div>
       {/* IMS Code */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Remarks" className="font-light font-min">
+        <label htmlFor="Remarks" className="font-light font-sans">
           IMS Code
         </label>
         <input
           type="text"
           {...register("ims_code")}
-          className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize py-2"
+          className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize py-2"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.ims_code?.message}
         </p>
       </div>
       {/* Country */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="country" className="font-light font-min ">
+        <label htmlFor="country" className="font-light font-sans ">
           Country
         </label>
         <select
           {...register("country")}
-          className="p-3 rounded bg-slate-400/20 font-min font-light"
+          className="p-3 rounded bg-slate-400/20 font-sans font-light"
         >
           {countries &&
             countries.map((country: any) => (
@@ -199,32 +199,32 @@ const InternationalTransferForm = (props: Props) => {
               </option>
             ))}
         </select>
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.country?.message}
         </p>
       </div>
       {/* routing Number */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Routing Number
         </label>
         <input
           type="text"
           {...register("routing_number")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.routing_number?.message}
         </p>
       </div>
       {/* Account Type input */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Account Type" className="font-light font-min">
+        <label htmlFor="Account Type" className="font-light font-sans">
           Account Type
         </label>
         <select
           {...register("account_type")}
-          className="p-4 outline-none rounded bg-slate-400/20  font-min font-light"
+          className="p-4 outline-none rounded bg-slate-400/20  font-sans font-light"
         >
           {accountTypeOptions.map((actType) => (
             <option value={actType} key={actType}>
@@ -232,27 +232,27 @@ const InternationalTransferForm = (props: Props) => {
             </option>
           ))}
         </select>
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.account_type?.message}
         </p>
       </div>
       {/* fund Purpose */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="account description" className="font-light font-min ">
+        <label htmlFor="account description" className="font-light font-sans ">
           Remark
         </label>
         <textarea
           {...register("remark")}
-          className="p-4 outline-none resize-none  rounded bg-slate-400/20  font-min font-light"
+          className="p-4 outline-none resize-none  rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.remark?.message}
         </p>
       </div>
       <button
         type="submit"
         disabled={!isValid}
-        className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
       >
         Submit
       </button>

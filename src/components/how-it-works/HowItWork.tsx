@@ -38,11 +38,11 @@ const HowItWork = () => {
       <div className="bg-yellow-500/80 h-full w-full">
         {/* container */}
         <div className="w-[90%] mx-auto p-4">
-          <h4 className="text-center my-[2rem] font-main text-3xl md:text-4xl font-semibold text-white">
+          <h4 className="text-center my-[2rem] font-sans text-3xl md:text-4xl font-semibold text-white">
             How <span className="text-blue-500 uppercase underline">It</span>{" "}
             Works
           </h4>
-          <p className="text-center my-[2rem] font-min font-light md:w-[50%] mx-auto text-white">
+          <p className="text-center my-[2rem] font-sans font-light md:w-[50%] mx-auto text-white">
             Start banking and making profit in our platform requires no
             professional skills. In just three easy steps you are a millionaire.
           </p>
@@ -55,10 +55,10 @@ const HowItWork = () => {
               >
                 {reason.icon}
                 <div className="text-center">
-                  <h4 className="font-main capitalize my-4 font-semibold">
+                  <h4 className="font-sans capitalize my-4 font-semibold">
                     {reason.title}
                   </h4>
-                  <p className="font-min font-light capitalize text-sm">
+                  <p className="font-sans font-light capitalize text-sm">
                     {reason.subTitle}
                   </p>
                 </div>

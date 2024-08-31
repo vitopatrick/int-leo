@@ -85,95 +85,95 @@ const DomesticTransferForm = (props: Props) => {
     <form className="md:w-[60%] mx-auto" onClick={handleSubmit(AddToFireStore)}>
       {/* amount */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Amount" className="font-light font-min">
+        <label htmlFor="Amount" className="font-light font-sans">
           Amount
         </label>
         <input
           type="text"
           {...register("amount")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.amount?.message}
         </p>
       </div>
       {/* beneficiary Name */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Account Name" className="font-light font-min">
+        <label htmlFor="Account Name" className="font-light font-sans">
           Beneficiary Account Name
         </label>
         <input
           {...register("beneficiary_name")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.beneficiary_name?.message}
         </p>
       </div>
       {/* bank Name */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Bank Name
         </label>
         <input
           type="text"
           {...register("bankName")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.bankName?.message}
         </p>
       </div>
       {/* Beneficiary Account number */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Beneficiary Account Number
         </label>
         <input
           type="text"
           {...register("beneficiary_account_number")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.beneficiary_account_number?.message}
         </p>
       </div>
       {/* Ims */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Remarks" className="font-light font-min">
+        <label htmlFor="Remarks" className="font-light font-sans">
           IMS Code
         </label>
         <input
           type="text"
           {...register("ims_code")}
-          className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize py-2"
+          className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize py-2"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.ims_code?.message}
         </p>
       </div>
       {/* fund Purpose */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="account description" className="font-light font-min ">
+        <label htmlFor="account description" className="font-light font-sans ">
           Remark
         </label>
         <textarea
           {...register("remark")}
-          className="p-4 outline-none resize-none  rounded bg-slate-400/20  font-min font-light"
+          className="p-4 outline-none resize-none  rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.remark?.message}
         </p>
       </div>
 
       {/* account type */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="account type" className="font-light font-min">
+        <label htmlFor="account type" className="font-light font-sans">
           Account type
         </label>
         <select
           {...register("account_type")}
-          className="font-min p-3 bg-slate-400/20 font-light"
+          className="font-sans p-3 bg-slate-400/20 font-light"
         >
           <option value="checking">checking account</option>
           <option value="fixed">fixed deposit account</option>
@@ -184,7 +184,7 @@ const DomesticTransferForm = (props: Props) => {
       <button
         type="submit"
         disabled={!isValid}
-        className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
       >
         Submit
       </button>

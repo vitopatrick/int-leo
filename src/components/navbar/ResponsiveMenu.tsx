@@ -48,7 +48,7 @@ const ResponsiveMenu = ({ changeFn, visible }: Props) => {
               <Link
                 key={link.id}
                 to={link.path}
-                className="block text-white font-min capitalize text-xl font-light py-4 px-2 hover:bg-blue-500/30 rounded-md transition-all ease-in-out hover:text-blue-500"
+                className="block text-white font-sans capitalize text-xl font-light py-4 px-2 hover:bg-blue-500/30 rounded-md transition-all ease-in-out hover:text-blue-500"
               >
                 {link.title}
               </Link>
@@ -57,13 +57,13 @@ const ResponsiveMenu = ({ changeFn, visible }: Props) => {
           <div className="p-4 space-y-6">
             <Link
               to="/login"
-              className="block rounded-full hover:border-[2px] hover:border-blue-300 hover:text-blue-300  font-min font-light text-blue-500 border border-blue-500 p-4 text-center text-xl "
+              className="block rounded-full hover:border-[2px] hover:border-blue-300 hover:text-blue-300  font-sans font-light text-blue-500 border border-blue-500 p-4 text-center text-xl "
             >
               Sign In
             </Link>
             <Link
               to="/register"
-              className="bg-blue-500 p-4 rounded-full font-min font-light text-center text-xl hover:bg-blue-700  text-white block"
+              className="bg-blue-500 p-4 rounded-full font-sans font-light text-center text-xl hover:bg-blue-700  text-white block"
             >
               Register
             </Link>

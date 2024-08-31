@@ -38,7 +38,7 @@ const Services = () => {
   return (
     <div className="bg-neutral-900">
       {/* container */}
-      <section className="w-[90%] mx-auto p-4 font-min">
+      <section className="w-[90%] mx-auto p-4 font-sans">
         {/* header */}
         <h4 className="text-blue-500 underline text-3xl">
           International Leo Bank Services

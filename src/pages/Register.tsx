@@ -133,7 +133,7 @@ const Register = (props: Props) => {
           )}
 
           {/*form footer */}
-          <div className="flex flex-col mt-[2rem] py-[2rem]  text-center justify-center items-center font-min font-light">
+          <div className="flex flex-col mt-[2rem] py-[2rem]  text-center justify-center items-center font-sans font-light">
             <p className="text-yellow-200">
               Have an account,{" "}
               <Link to="/login" className="underline font-regular">

@@ -12,24 +12,24 @@ const AccountSummary = (props: Props) => {
       <div className="flex items-center gap-4">
         {user ? (
           <>
-            <div className="flex items-center justify-center p-4 h-[50px] w-[50px] uppercase font-min text-xl rounded-full border-[2px] border-blue-600">
+            <div className="flex items-center justify-center p-4 h-[50px] w-[50px] uppercase font-sans text-xl rounded-full border-[2px] border-blue-600">
               {user.name.substr(0, 2)}
             </div>
-            <div className="font-min">
+            <div className="font-sans">
               <h1 className="font-semibold tracking-wide">{user.name}</h1>
               <p className="text-gray-400">{user.email}</p>
             </div>
           </>
         ) : (
           <>
-            <p className="font-min font-light p-3">loading ...</p>
+            <p className="font-sans font-light p-3">loading ...</p>
           </>
         )}
       </div>
       {/* account number */}
       {user && (
         <>
-          <div className="font-min mt-[3rem] space-y-4">
+          <div className="font-sans mt-[3rem] space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="tracking-wide text-gray-500">Acct No.</h3>
               <p>{user.accountNumber}</p>

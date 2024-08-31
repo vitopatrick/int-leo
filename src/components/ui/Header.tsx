@@ -16,7 +16,7 @@ const Header = ({ closeBar, isBarOpen }: controllerOptions) => {
     <div className="shadow-sm py-4 px-2">
       {/* container */}
       <div className="py-2 px-4 flex items-center justify-between">
-        <h3 className="font-min tracking-wider uppercase text-xl ">
+        <h3 className="font-sans tracking-wider uppercase text-xl ">
           {pathName && pathName == "home" ? "Dashboard" : pathName}
         </h3>
 

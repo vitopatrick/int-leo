@@ -7,57 +7,61 @@ import {
   LogOut,
   CreditCard,
   EuroIcon,
-  ChevronLeft,
+  ChevronUp,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import { Dispatch, SetStateAction } from "react";
 
-type controls = {
-  isBarOpen: boolean;
-  close: Dispatch<SetStateAction<boolean>>;
-};
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const links = [
   {
     path: "home",
     title: "Dashboard",
-    icon: <LayoutDashboard />,
+    icon: <LayoutDashboard strokeWidth={0.9} />,
   },
   {
     path: "account",
     title: "Account",
-    icon: <User />,
+    icon: <User strokeWidth={0.9} />,
   },
   {
     path: "deposit",
     title: "Online Deposit",
-    icon: <Receipt />,
+    icon: <Receipt strokeWidth={0.9} />,
   },
   {
     path: "transfer",
     title: "Transfer",
-    icon: <CandlestickChart />,
+    icon: <CandlestickChart strokeWidth={0.9} />,
   },
-  // {
-  //   path: "card",
-  //   title: "Virtual Card",
-  //   icon: <CreditCard />,
-  // },
+  {
+    path: "card",
+    title: "Virtual Card",
+    icon: <CreditCard strokeWidth={0.9} />,
+  },
   {
     path: "withdraw",
     title: "Withdraw",
-    icon: <ArrowDownToLine />,
+    icon: <ArrowDownToLine strokeWidth={0.9} />,
   },
-  // {
-  //   path: "loan",
-  //   title: "Loan",
-  //   icon: <EuroIcon />,
-  // },
+  {
+    path: "loan",
+    title: "Loan",
+    icon: <EuroIcon strokeWidth={0.9} />,
+  },
 ];
 
-const MobileSideNav = ({ isBarOpen, close }: controls) => {
+const MobileSideNav = () => {
   // Navigation
   const Navigation = useNavigate();
 
@@ -71,37 +75,38 @@ const MobileSideNav = ({ isBarOpen, close }: controls) => {
   };
 
   return (
-    <>
-      <div className="space-y-[2rem] w-[250px] bg-slate-900 md:hidden block h-screen">
-        <div className="flex items-end justify-end mx-4 py-2">
-          <button
-            className="flex font-min text-blue-50 py-2"
-            onClick={() => close(!isBarOpen)}
-          >
-            <ChevronLeft />
-          </button>
-        </div>
-        {links.map((link) => (
-          <Link
-            to={link.path}
-            key={link.title}
-            onClick={() => close(!isBarOpen)}
-            className="text-blue-50 flex gap-3 items-center  font-min font-light hover:bg-blue-900 rounded p-4 transition-all ease-in"
-          >
-            <span>{link.icon}</span>
-            <p>{link.title}</p>
-          </Link>
-        ))}
-
-        <button
-          onClick={signOutOfApp}
-          className="flex gap-3 items-center font-min font-light text-blue-50 p-4 rounded hover:bg-blue-900 transition-all ease-in w-full"
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button
+          variant="outline"
+          className="fixed bottom-0 mb-4 left-[50%] right-[50%] rounded-full flex items-center justify-center h-[50px] w-[50px]  lg:hidden"
         >
-          <LogOut />
-          logout
-        </button>
-      </div>
-    </>
+          <ChevronUp strokeWidth={1.2} />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent className="bg-blue-950 text-white border-none">
+        <div>
+          <DrawerHeader className="text-left">
+            <DrawerTitle>More Options</DrawerTitle>
+            <DrawerDescription className="text-neutral-200">
+              Find your way here
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="p-4  grid grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-6">
+            {links.map((link) => (
+              <Link
+                key={link.title}
+                to={link.path}
+                className="flex flex-col items-center justify-center gap-1"
+              >
+                {link.icon}
+                <p className="font-light">{link.title}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 };
 

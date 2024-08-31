@@ -99,10 +99,10 @@ const LoginForm = () => {
   return (
     <>
       <div className="text-center space-y-2">
-        <h4 className="font-main text-blue-500 font-semibold text-3xl">
+        <h4 className="font-sans text-blue-500 font-semibold text-3xl">
           Welcome Back
         </h4>
-        <p className="font-min text-yellow-500 font-light capitalize">
+        <p className="font-sans text-yellow-500 font-light capitalize">
           Please enter your login Details
         </p>
       </div>
@@ -110,15 +110,15 @@ const LoginForm = () => {
       <form className="mt-[2rem] space-y-5" onSubmit={handleSubmit(loginUser)}>
         {/* email */}
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="font-light font-min text-blue-100">
+          <label htmlFor="email" className="font-light font-sans text-blue-100">
             Email
           </label>
           <input
             type="email"
             {...register("email")}
-            className="p-3 rounded bg-blue-400/20 text-white font-min font-light"
+            className="p-3 rounded bg-blue-400/20 text-white font-sans font-light"
           />
-          <p className="text-red-500 text-sm font-min capitalize font-light">
+          <p className="text-red-500 text-sm font-sans capitalize font-light">
             {errors.email?.message}
           </p>
         </div>
@@ -126,11 +126,11 @@ const LoginForm = () => {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="Password"
-            className="font-light font-min text-blue-100"
+            className="font-light font-sans text-blue-100"
           >
             Password
           </label>
-          <div className="rounded bg-blue-400/20 text-white font-min font-light flex items-center px-2 py-1">
+          <div className="rounded bg-blue-400/20 text-white font-sans font-light flex items-center px-2 py-1">
             {" "}
             <input
               type={isText ? "text" : "password"}
@@ -144,7 +144,7 @@ const LoginForm = () => {
             )}
           </div>
 
-          <p className="text-red-500 text-sm font-min capitalize font-light">
+          <p className="text-red-500 text-sm font-sans capitalize font-light">
             {errors.password?.message}
           </p>
         </div>
@@ -152,7 +152,7 @@ const LoginForm = () => {
         <div>
           <Link
             to="/forgot-password"
-            className="inline-block text-right font-min text-blue-50 font-light"
+            className="inline-block text-right font-sans text-blue-50 font-light"
           >
             Forgot Password ?
           </Link>
@@ -163,14 +163,14 @@ const LoginForm = () => {
           disabled={!isValid || isSubmitting}
           className={
             !isValid || isSubmitting
-              ? "w-full p-3 font-min text-neutral-500 rounded bg-blue-700"
-              : "w-full p-3 font-min text-blue-100 rounded bg-blue-500"
+              ? "w-full p-3 font-sans text-neutral-500 rounded bg-blue-700"
+              : "w-full p-3 font-sans text-blue-100 rounded bg-blue-500"
           }
         >
           Login
         </button>
         {/* sign up */}
-        <div className="text-center font-min text-blue-50 font-light flex items-center justify-center gap-2">
+        <div className="text-center font-sans text-blue-50 font-light flex items-center justify-center gap-2">
           <p>New To International Leo Bank ?</p>{" "}
           <Link to="/register" className="underline text-yellow-300">
             Sign Up

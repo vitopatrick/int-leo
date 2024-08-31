@@ -72,87 +72,87 @@ const WithdrawalForm = (props: Props) => {
       onSubmit={handleSubmit(AddToFireStore)}
     >
       <div>
-        <h4 className="font-min uppercase font-normal py-3 underline tracking-widest text-slate-900">
+        <h4 className="font-sans uppercase font-normal py-3 underline tracking-widest text-slate-900">
           Withdraw funds
         </h4>
       </div>
       {/* amount */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="amount" className="font-light font-min">
+        <label htmlFor="amount" className="font-light font-sans">
           Amount
         </label>
         <input
           type="text"
           {...register("amount")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.amount?.message}
         </p>
       </div>
       {/* Address */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Address
         </label>
         <select
           {...register("withdrawalType")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         >
           <option value="btc">Bitcoin Wallet Address</option>
           <option value="payeer">Payeer</option>
           <option value="paypal">Paypal</option>
           <option value="perfect money">Perfect money</option>
         </select>
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.withdrawalType?.message}
         </p>
       </div>
       {/* amount */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="full name" className="font-light font-min">
+        <label htmlFor="full name" className="font-light font-sans">
           Address
         </label>
         <input
           type="text"
           {...register("address")}
-          className="p-3 rounded bg-slate-400/20  font-min font-light"
+          className="p-3 rounded bg-slate-400/20  font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.address?.message}
         </p>
       </div>
       {/* Ims */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Remarks" className="font-light font-min">
+        <label htmlFor="Remarks" className="font-light font-sans">
           IMS Code
         </label>
         <input
           type="text"
           {...register("ims_code")}
-          className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize py-2"
+          className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize py-2"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.ims_code?.message}
         </p>
       </div>
       {/* Remarks */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="Remarks" className="font-light font-min">
+        <label htmlFor="Remarks" className="font-light font-sans">
           Remarks
         </label>
         <textarea
           {...register("remark")}
-          className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize pt-1"
+          className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize pt-1"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.remark?.message}
         </p>
       </div>
       <button
         type="submit"
         disabled={!isValid}
-        className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
       >
         CONTINUE
       </button>

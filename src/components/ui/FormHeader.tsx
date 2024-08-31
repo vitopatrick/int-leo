@@ -10,8 +10,8 @@ const FormHeader = ({ title, stage = 1, currentState }: Props) => {
       <span
         className={
           currentState == stage
-            ? "h-[40px] w-[40px] text-white  bg-blue-500  justify-center items-center flex font-min rounded-full"
-            : "h-[40px] w-[40px] text-white  bg-blue-300/20  justify-center items-center flex font-min rounded-full"
+            ? "h-[40px] w-[40px] text-white  bg-blue-500  justify-center items-center flex font-sans rounded-full"
+            : "h-[40px] w-[40px] text-white  bg-blue-300/20  justify-center items-center flex font-sans rounded-full"
         }
       >
         {stage}
@@ -19,8 +19,8 @@ const FormHeader = ({ title, stage = 1, currentState }: Props) => {
       <p
         className={
           currentState == stage
-            ? "font-min text-blue-400 font-regular"
-            : "font-min text-blue-100 font-light"
+            ? "font-sans text-blue-400 font-regular"
+            : "font-sans text-blue-100 font-light"
         }
       >
         {title}

@@ -8,7 +8,7 @@ const Footer = () => {
         {/* flex container */}
         <div className="flex justify-between items-center gap-4 flex-col md:flex-row">
           <div className="flex-1">
-            <p className="text-blue-400 font-min leading-loose font-light capitalize text-sm text-center md:text-left">
+            <p className="text-blue-400 font-sans leading-loose font-light capitalize text-sm text-center md:text-left">
               International Leo Bank is subsidiary of Belfius Bank & issuer of
               Debt instruments. We are a privately operates personal and
               business banking, including Internet Banking services based in the
@@ -21,7 +21,7 @@ const Footer = () => {
           <ContactForm />
         </div>
         {/* copyright */}
-        <div className="flex justify-between mt-[3rem] items-center font-min">
+        <div className="flex justify-between mt-[3rem] items-center font-sans">
           <p className="capitalize text-yellow-50 font-light text-sm">
             Copyright © 2021
           </p>
@@ -47,17 +47,17 @@ const ContactForm = () => {
     <div className="flex-1 w-full p-3">
       {/* header */}
       <div className="space-y-4 my-4">
-        <h3 className="text-blue-50 tracking-wider font-main text-2xl font-bold">
+        <h3 className="text-blue-50 tracking-wider font-sans text-2xl font-bold">
           Receive Latest Updates for Free
         </h3>
         <input
           type="email"
           name="email"
           id="email"
-          className="p-3 rounded font-min outline-none w-full font-light"
+          className="p-3 rounded font-sans outline-none w-full font-light"
           placeholder="johndoe@example.com"
         />
-        <button className="w-full bg-blue-500 p-3 font-min text-white">
+        <button className="w-full bg-blue-500 p-3 font-sans text-white">
           Subscribe
         </button>
       </div>
@@ -67,7 +67,7 @@ const ContactForm = () => {
           <NavLink
             to={link.path}
             key={link.id}
-            className="text-blue-50 hover:text-blue-500 font-min"
+            className="text-blue-50 hover:text-blue-500 font-sans"
           >
             {link.title}
           </NavLink>

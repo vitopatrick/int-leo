@@ -31,27 +31,27 @@ const ResidenceForm = ({ updateFn, formState, errors }: formState) => {
       <div className="flex flex-col gap-2 my-4">
         <label
           htmlFor="Residence Address"
-          className="font-light font-min text-blue-100"
+          className="font-light font-sans text-blue-100"
         >
           Residence Address
         </label>
         <input
           type="text"
           {...formState("address")}
-          className="p-3 rounded bg-blue-400/20 text-white font-min font-light"
+          className="p-3 rounded bg-blue-400/20 text-white font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.address?.message}
         </p>
       </div>
       {/* Country */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="country" className="font-light font-min text-blue-100">
+        <label htmlFor="country" className="font-light font-sans text-blue-100">
           Country
         </label>
         <select
           {...formState("country")}
-          className="p-3 rounded bg-blue-400/20 text-white font-min font-light"
+          className="p-3 rounded bg-blue-400/20 text-white font-sans font-light"
         >
           {countries &&
             countries.map((country: any) => (
@@ -61,21 +61,21 @@ const ResidenceForm = ({ updateFn, formState, errors }: formState) => {
             ))}
         </select>
 
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.country?.message}
         </p>
       </div>
       {/* zip code  input */}
       <div className="flex flex-col gap-2 my-4">
-        <label htmlFor="code" className="font-light font-min text-blue-100">
+        <label htmlFor="code" className="font-light font-sans text-blue-100">
           Zip Code
         </label>
         <input
           {...formState("zipCode")}
           type="text"
-          className="p-3 rounded bg-blue-400/20 text-white font-min font-light"
+          className="p-3 rounded bg-blue-400/20 text-white font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.zipCode?.message}
         </p>
       </div>
@@ -83,14 +83,14 @@ const ResidenceForm = ({ updateFn, formState, errors }: formState) => {
       <div className="flex justify-between">
         <button
           type="button"
-          className="border-blue-500 border font-min font-medium p-3 rounded text-white"
+          className="border-blue-500 border font-sans font-medium p-3 rounded text-white"
           onClick={moveToPrevForm}
         >
           Prev
         </button>
         <button
           type="button"
-          className="bg-blue-500 font-min font-medium p-3 rounded text-white"
+          className="bg-blue-500 font-sans font-medium p-3 rounded text-white"
           onClick={moveToNextForm}
         >
           Next

@@ -11,6 +11,13 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "../ui/button";
 
 type controls = {
   isBarOpen: boolean;
@@ -20,41 +27,41 @@ const links = [
   {
     path: "home",
     title: "Dashboard",
-    icon: <LayoutDashboard />,
+    icon: <LayoutDashboard strokeWidth={2} color="#fff" />,
   },
   {
     path: "account",
     title: "Account",
-    icon: <User />,
+    icon: <User strokeWidth={2} color="#fff" />,
   },
   {
     path: "deposit",
     title: "Online Deposit",
-    icon: <Receipt />,
+    icon: <Receipt strokeWidth={2} color="#fff" />,
   },
   {
     path: "transfer",
     title: "Transfer",
-    icon: <CandlestickChart />,
+    icon: <CandlestickChart strokeWidth={2} color="#fff" />,
   },
   {
     path: "card",
     title: "Virtual Card",
-    icon: <CreditCard />,
+    icon: <CreditCard strokeWidth={2} color="#fff" />,
   },
   {
     path: "withdraw",
     title: "Withdraw",
-    icon: <ArrowDownToLine />,
+    icon: <ArrowDownToLine strokeWidth={2} color="#fff" />,
   },
   {
     path: "loan",
     title: "Loan",
-    icon: <EuroIcon />,
+    icon: <EuroIcon strokeWidth={2} color="#fff" />,
   },
 ];
 
-const SideNav = ({ isBarOpen }: controls) => {
+const SideNav = () => {
   // Navigation
   const Navigation = useNavigate();
 
@@ -69,26 +76,33 @@ const SideNav = ({ isBarOpen }: controls) => {
 
   return (
     <>
-      <div className="space-y-[2rem] w-[250px] bg-slate-900 md:block hidden ">
-        {links.map((link) => (
-          <Link
-            to={link.path}
-            key={link.title}
-            className="text-blue-50 flex gap-3 items-center  font-min font-light hover:bg-blue-900 rounded p-4 transition-all ease-in"
-          >
-            <span>{link.icon}</span>
-            <p>{link.title}</p>
-          </Link>
-        ))}
-
-        <button
-          onClick={signOutOfApp}
-          className="flex gap-3 items-center font-min font-light text-blue-50 p-4 rounded hover:bg-blue-900 transition-all ease-in w-full"
-        >
-          <LogOut />
-          logout
-        </button>
-      </div>
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-blue-950 text-white sm:flex">
+        <nav className="flex flex-col items-center gap-8 px-2 sm:py-5">
+          {links.map((link) => (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  to={link.path}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                >
+                  {link.icon}
+                  <span className="sr-only">{link.title}</span>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="right">{link.title}</TooltipContent>
+            </Tooltip>
+          ))}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant={"ghost"}>
+                <LogOut strokeWidth={1.2} />
+                <span className="sr-only">Logout</span>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right">Logout</TooltipContent>
+          </Tooltip>
+        </nav>
+      </aside>
     </>
   );
 };

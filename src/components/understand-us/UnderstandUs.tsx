@@ -62,12 +62,12 @@ const UnderstandUs = (props: Props) => {
 const Expectations = () => {
   return (
     <div>
-      <h4 className="font-main text-white md:w-[50%] mx-auto  text-center text-2xl md:text-4xl font-semibold capitalize">
+      <h4 className="font-sans text-white md:w-[50%] mx-auto  text-center text-2xl md:text-4xl font-semibold capitalize">
         We Always Try{" "}
         <span className="underline text-blue-500">To Understand Customers</span>{" "}
         Expectation
       </h4>
-      <p className="my-[3rem] font-min text-white font-light text-center md:w-[50%] mx-auto">
+      <p className="my-[3rem] font-sans text-white font-light text-center md:w-[50%] mx-auto">
         Start Banking and making profit in our platform requires no professional
         skills. In just three easy steps you are a millionaire.
       </p>
@@ -78,7 +78,7 @@ const Expectations = () => {
             <h3 className="text-blue-500 font-bold text-main text-2xl  md:text-5xl">
               {achievement.title}
             </h3>
-            <p className="text-blue-50 font-min font-light">
+            <p className="text-blue-50 font-sans font-light">
               {achievement.subtitle}
             </p>
           </div>
@@ -87,14 +87,14 @@ const Expectations = () => {
       {/* Questions */}
       <div className="bg-white md:w-[50%] md:rounded-full p-4 mx-auto my-[3rem] flex items-center flex-col md:flex-row justify-between border-[2px] border-blue-500 border-dashed gap-8">
         <div className="md:text-left text-center">
-          <h4 className="font-main text-lg capitalize">
+          <h4 className="font-sans text-lg capitalize">
             Have any question about us?
           </h4>
-          <p className="font-min font-light">Don't hesitate to contact us</p>
+          <p className="font-sans font-light">Don't hesitate to contact us</p>
         </div>
         <Link
           to="/register"
-          className="bg-blue-500 p-4 md:rounded-full text-white font-light font-min"
+          className="bg-blue-500 p-4 md:rounded-full text-white font-light font-sans"
         >
           Contact Us
         </Link>
@@ -113,13 +113,13 @@ const CustomerReview = () => {
             <img src={review.avatar} alt="" className="w-full rounded-full" />
           </div>
           <div className="space-y-4">
-            <p className="font-min text-blue-50 leading-loose text-sm font-light">
+            <p className="font-sans text-blue-50 leading-loose text-sm font-light">
               {review.review}
             </p>
-            <h4 className="font-main font-semibold text-blue-50">
+            <h4 className="font-sans font-semibold text-blue-50">
               {review.name}
             </h4>
-            <p className="text-blue-500 font-light font-min text-sm">
+            <p className="text-blue-500 font-light font-sans text-sm">
               {review.position}
             </p>
           </div>
@@ -133,15 +133,15 @@ const CustomerReview = () => {
 const ApplyForAnAccount = () => {
   return (
     <section className="flex flex-col items-center justify-between gap-8 py-8">
-      <h3 className="font-main md:text-4xl text-2xl capitalize text-blue-50 text-center font-semibold">
+      <h3 className="font-sans md:text-4xl text-2xl capitalize text-blue-50 text-center font-semibold">
         Apply for an account in minutes
       </h3>
-      <p className="text-center text-white font-min  font-light">
+      <p className="text-center text-white font-sans  font-light">
         Get your International leo Bank account today!
       </p>
       <Link
         to="/register"
-        className="p-4 bg-blue-500 font-min font-light uppercase rounded text-blue-50"
+        className="p-4 bg-blue-500 font-sans font-light uppercase rounded text-blue-50"
       >
         Get Your Account Today
       </Link>

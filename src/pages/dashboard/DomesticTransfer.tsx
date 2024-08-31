@@ -7,7 +7,7 @@ const DomesticTransfer = (props: Props) => {
     <div>
       {/* header */}
       <div className="my-4">
-        <h4 className="font-min uppercase font-normal py-3 underline tracking-widest text-slate-900">
+        <h4 className="font-sans uppercase font-normal py-3 underline tracking-widest text-slate-900">
           Domestic Transfer
         </h4>
       </div>

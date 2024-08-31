@@ -35,7 +35,7 @@ const SelfieVerification = () => {
         <div className="bg-neutral-100/50 rounded p-3 shadow-sm">
           <form action="">
             {/* select */}
-            <div className="flex flex-col font-min gap-2">
+            <div className="flex flex-col font-sans gap-2">
               <label htmlFor="document" className="font-light">
                 Document
               </label>
@@ -53,12 +53,12 @@ const SelfieVerification = () => {
                 <option value="id">ID Card</option>
               </select>
             </div>
-            <p className="my-4 text-sm font-min font-light capitalize">
+            <p className="my-4 text-sm font-sans font-light capitalize">
               Make sure the document shows your photo, full name, date of birth
               and date of issue.
             </p>
             {/* file front*/}
-            <div className="flex flex-col gap-2 font-min my-4">
+            <div className="flex flex-col gap-2 font-sans my-4">
               <label htmlFor="document" className="font-light capitalize">
                 upload document front
               </label>
@@ -71,7 +71,7 @@ const SelfieVerification = () => {
               />
             </div>
             {/* file back */}
-            <div className="flex flex-col gap-2 font-min my-4">
+            <div className="flex flex-col gap-2 font-sans my-4">
               <label htmlFor="document" className="font-light capitalize">
                 upload document back
               </label>
@@ -87,7 +87,7 @@ const SelfieVerification = () => {
             <button
               type="submit"
               onClick={uploadDocumentToFireStorage}
-              className="p-3 w-full bg-blue-500 rounded font-min font-normal capitalize text-blue-50"
+              className="p-3 w-full bg-blue-500 rounded font-sans font-normal capitalize text-blue-50"
             >
               submit document
             </button>

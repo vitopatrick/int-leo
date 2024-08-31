@@ -38,7 +38,7 @@ const Navbar = (props: Props) => {
       <nav className="w-[90%] h-[80px] fixed top-0 z-30  mt-3 bg-neutral-100 right-0 left-0  mx-auto rounded-full px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div>
-          <Link to="/" className="tracking-widest font-min text-blue-950">
+          <Link to="/" className="tracking-widest font-sans text-blue-950">
             INT. Leo
           </Link>
         </div>
@@ -48,7 +48,7 @@ const Navbar = (props: Props) => {
             <Link
               to={link.path}
               key={link.id}
-              className="font-min font-light capitalize hover:font-medium hover:underline hover:text-blue-500 transition-all ease-in"
+              className="font-sans font-light capitalize hover:font-medium hover:underline hover:text-blue-500 transition-all ease-in"
             >
               {link.title}
             </Link>
@@ -56,12 +56,12 @@ const Navbar = (props: Props) => {
         </div>
         {/* Sign in & Register */}
         <div className="space-x-4 hidden md:block">
-          <Link to="/login" className="text-light font-min text-blue-500">
+          <Link to="/login" className="text-light font-sans text-blue-500">
             Sign In
           </Link>
           <Link
             to="/register"
-            className="bg-blue-500 rounded-full p-4 font-min text-white"
+            className="bg-blue-500 rounded-full p-4 font-sans text-white"
           >
             Register
           </Link>

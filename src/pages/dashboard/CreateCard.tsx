@@ -91,52 +91,52 @@ const CreateCard = () => {
         >
           <div className="flex justify-between items-center">
             <div>
-              <h4 className="font-min uppercase font-normal py-3 underline tracking-widest text-slate-900">
+              <h4 className="font-sans uppercase font-normal py-3 underline tracking-widest text-slate-900">
                 New Virtual Card
               </h4>
-              <p className="text-sm font-min font-light">
+              <p className="text-sm font-sans font-light">
                 To Generate A New Card, Cost $1,000
               </p>
             </div>
-            <div className="bg-blue-400 text-blue-50 font-min p-2 rounded">
+            <div className="bg-blue-400 text-blue-50 font-sans p-2 rounded">
               Balance <span>{user && toDollar(user.accountBalance)}</span>
             </div>
           </div>
           {/* amount */}
           <div className="flex flex-col gap-2 my-4">
-            <label htmlFor="Select Card Type" className="font-light font-min">
+            <label htmlFor="Select Card Type" className="font-light font-sans">
               Select Card Type
             </label>
             <select
-              className="font-min bg-slate-400/20 p-3 font-light"
+              className="font-sans bg-slate-400/20 p-3 font-light"
               {...register("card_type")}
             >
               <option value="master card">Master Card</option>
               <option value="visa">Visa</option>
               <option value="american express">American Express</option>
             </select>
-            <p className="text-red-500 text-sm font-min capitalize font-light">
+            <p className="text-red-500 text-sm font-sans capitalize font-light">
               {errors.card_type?.message}
             </p>
           </div>
 
           {/* Remarks */}
           <div className="flex flex-col gap-2 my-4">
-            <label htmlFor="Request Reason" className="font-light font-min">
+            <label htmlFor="Request Reason" className="font-light font-sans">
               Request Reason
             </label>
             <textarea
               {...register("request_reason")}
-              className="resize-y bg-slate-400/20 px-2 font-min font-light capitalize pt-1"
+              className="resize-y bg-slate-400/20 px-2 font-sans font-light capitalize pt-1"
             />
-            <p className="text-red-500 text-sm font-min capitalize font-light">
+            <p className="text-red-500 text-sm font-sans capitalize font-light">
               {errors.request_reason?.message}
             </p>
           </div>
           <button
             type="submit"
             disabled={!isValid}
-            className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+            className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
           >
             CONTINUE
           </button>

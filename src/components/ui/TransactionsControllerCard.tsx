@@ -69,45 +69,45 @@ const TransactionsControllerCard = ({}: Props) => {
         <div className="flex items-center justify-between">
           {/* balance  */}
           <div className="space-y-3">
-            <p className="text-blue-50 font-min font-light">Balance</p>
+            <p className="text-blue-50 font-sans font-light">Balance</p>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-min text-xl md:text-2xl text-blue-200"
+              className="font-sans text-xl md:text-2xl text-blue-200"
             >
               {user && toDollar(user.accountBalance)}
             </motion.p>
           </div>
           {/* fixed balance */}
           <div className="space-y-3 text-center">
-            <p className="text-blue-50 font-min font-light capitalize">
+            <p className="text-blue-50 font-sans font-light capitalize">
               fixed deposit balance
             </p>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-min text-xl md:text-2xl text-blue-200"
+              className="font-sans text-xl md:text-2xl text-blue-200"
             >
               {user && toDollar(user.fixedDepositBalance)}
             </motion.p>
           </div>
           {/* loan balance */}
           <div className="space-y-3">
-            <p className="text-blue-50 font-min font-light">Loan Balance</p>
+            <p className="text-blue-50 font-sans font-light">Loan Balance</p>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-min text-xl md:text-2xl text-blue-200"
+              className="font-sans text-xl md:text-2xl text-blue-200"
             >
               {user && toDollar(user.loanBalance)}
             </motion.p>
           </div>
         </div>
         {/* actions summary */}
-        <div className="flex items-center mt-[2rem] p-4 justify-evenly text-blue-100 font-min font-light">
+        <div className="flex items-center mt-[2rem] p-4 justify-evenly text-blue-100 font-sans font-light">
           {location.pathname === "/dashboard/home" &&
             links.map((link) => (
               <Link
@@ -126,7 +126,7 @@ const TransactionsControllerCard = ({}: Props) => {
             <button
               key={value.path}
               onClick={() => navigation(value.path)}
-              className="block w-full text-center capitalize font-min font-normal text-blue-500 bg-blue-50 p-2 rounded"
+              className="block w-full text-center capitalize font-sans font-normal text-blue-500 bg-blue-50 p-2 rounded"
             >
               {value.title}
             </button>

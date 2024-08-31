@@ -76,37 +76,37 @@ const LoanForm = (props: Props) => {
   };
 
   return (
-    <div className="font-min md:w-[50%] mx-auto">
+    <div className="font-sans md:w-[50%] mx-auto">
       {/* header */}
       <div>
-        <h4 className="font-min uppercase font-normal py-3 underline tracking-widest text-slate-900">
+        <h4 className="font-sans uppercase font-normal py-3 underline tracking-widest text-slate-900">
           Loan request form
         </h4>
       </div>
       <form onSubmit={handleSubmit(addToFireStoreRecord)}>
         {/* amount */}
         <div className="flex flex-col gap-2 my-4">
-          <label htmlFor="amount" className="font-light font-min">
+          <label htmlFor="amount" className="font-light font-sans">
             Amount
           </label>
           <input
             type="text"
             {...register("amount")}
             placeholder="$0"
-            className="p-3 rounded bg-slate-400/20  font-min font-light"
+            className="p-3 rounded bg-slate-400/20  font-sans font-light"
           />
-          <p className="text-red-500 text-sm font-min capitalize font-light">
+          <p className="text-red-500 text-sm font-sans capitalize font-light">
             {errors.amount?.message}
           </p>
         </div>
         {/* reason for loan */}
         <div className="flex flex-col gap-2 my-4">
-          <label htmlFor="reason for loan" className="font-light font-min">
+          <label htmlFor="reason for loan" className="font-light font-sans">
             Reason for loan
           </label>
 
           <select
-            className="p-3 rounded bg-slate-400/20  font-min font-light"
+            className="p-3 rounded bg-slate-400/20  font-sans font-light"
             {...register("reason_for_loan")}
           >
             <option value="business launching">Business launching</option>
@@ -114,14 +114,14 @@ const LoanForm = (props: Props) => {
             <option value="Education">Education</option>
             <option value="Health Issues">Health Issues</option>
           </select>
-          <p className="text-red-500 text-sm font-min capitalize font-light">
+          <p className="text-red-500 text-sm font-sans capitalize font-light">
             {errors.reason_for_loan?.message}
           </p>
         </div>
         {/* submit button */}
         <button
           type="submit"
-          className="bg-blue-500 font-min font-medium p-3 rounded text-white block w-full"
+          className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
         >
           Submit Application
         </button>

@@ -16,10 +16,10 @@ const Account = (props: Props) => {
         <div className="flex items-center gap-[2rem] flex-col">
           {user ? (
             <>
-              <div className="uppercase bg-blue-50 h-[100px] w-[100px] flex items-center justify-center font-min text-4xl rounded-full">
+              <div className="uppercase bg-blue-50 h-[100px] w-[100px] flex items-center justify-center font-sans text-4xl rounded-full">
                 {user.name.substr(0, 2)}
               </div>
-              <div className="font-min space-y-2 text-center">
+              <div className="font-sans space-y-2 text-center">
                 <h4 className="text-2xl capitalize">{user.name}</h4>
                 {!user.verified && (
                   <Link
@@ -34,13 +34,13 @@ const Account = (props: Props) => {
           ) : (
             <>
               {" "}
-              <p className="font-min font-light text-center">loading....</p>
+              <p className="font-sans font-light text-center">loading....</p>
             </>
           )}
         </div>
         {/* account details */}
         {user ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[2rem] font-min mt-[3rem]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[2rem] font-sans mt-[3rem]">
             {/* email */}
             <div className="flex items-center gap-2 bg-blue-50/50 py-4 px-2 rounded">
               <div className="bg-red-500/20 h-[80px] w-[80px] flex items-center justify-center rounded-full">
@@ -84,7 +84,7 @@ const Account = (props: Props) => {
           </div>
         ) : (
           <>
-            <p className="font-min font-light text-center">loading...</p>
+            <p className="font-sans font-light text-center">loading...</p>
           </>
         )}
       </section>

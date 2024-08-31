@@ -1,58 +1,45 @@
 import { Outlet } from "react-router-dom";
 import SideNav from "../../components/sideNav/SideNav";
-import Header from "../../components/ui/Header";
-import { useState } from "react";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { useAuth } from "../../hooks/useAuth";
-import MobileSideNav from "../../components/sideNav/MobileSideNav";
-import { AnimatePresence, motion } from "framer-motion";
 import LoadingModal from "../../components/ui/LoadingModal";
+
+import { TooltipProvider } from "@/components/ui/tooltip";
+import MobileSideNav from "@/components/sideNav/MobileSideNav";
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const { userState: user, loading } = useFetchUser();
+  const { userState: user, loading }: any = useFetchUser();
 
   useAuth();
 
   return (
-    <>
-      <div className="flex h-screen">
-        <motion.div
-          key={isOpen ? 0 : 1}
-          initial={{
-            translateX: -99,
-          }}
-          exit={{
-            translateX: -99,
-          }}
-          animate={{ translateX: 0 }}
-          transition={{
-            duration: 0.2,
-          }}
-          className={
-            isOpen
-              ? "bg-black/30 fixed top-0 right-0 left-0 bottom-0 h-screen"
-              : "hidden"
-          }
-        >
-          <MobileSideNav isBarOpen={isOpen} close={setIsOpen} />
-        </motion.div>
-        <SideNav isBarOpen={isOpen} />
-        <div className="flex-1 min-h-0 overflow-y-scroll">
-          <Header isBarOpen={isOpen} closeBar={setIsOpen} />
-          {loading ? (
-            <>
-              <LoadingModal isOpen={loading} />
-            </>
-          ) : (
-            user && <Outlet />
-          )}
+    <TooltipProvider>
+      <div className="flex min-h-screen w-full flex-col bg-muted/40">
+        <SideNav />
+        <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+          <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6  justify-between">
+            <div>Int. Leo</div>
+            <div>
+              {user && (
+                <h3 className="font-bold uppercase text-lg">{user?.name}</h3>
+              )}
+            </div>
+          </header>
+          <main className=" p-4 ">
+            {loading ? (
+              <>
+                <LoadingModal isOpen={loading} />
+              </>
+            ) : (
+              user && <Outlet />
+            )}
+          </main>
         </div>
+        <MobileSideNav />
       </div>
-    </>
+    </TooltipProvider>
   );
 };
 

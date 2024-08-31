@@ -59,7 +59,7 @@ const OurServices = (props: Props) => {
       {/* container */}
       <section className="w-[90%] p-4 mx-auto">
         {/* header */}
-        <h4 className="font-main text-3xl md:text-4xl font-medium text-center">
+        <h4 className="font-sans text-3xl md:text-4xl font-medium text-center">
           Take <span className="text-blue-500 underline"> A Look At</span> Our
           Service
         </h4>
@@ -71,10 +71,10 @@ const OurServices = (props: Props) => {
                 {service.icon}
               </div>
               <div>
-                <h4 className="font-min capitalize tracking-wider underline">
+                <h4 className="font-sans capitalize tracking-wider underline">
                   {service.title}
                 </h4>
-                <p className="font-min font-light text-sm leading-loose">
+                <p className="font-sans font-light text-sm leading-loose">
                   {service.details}
                 </p>
               </div>

@@ -29,13 +29,13 @@ const AccountInfoForm = ({ updateFn, formState, errors }: formState) => {
       <div className="flex flex-col gap-2 my-4">
         <label
           htmlFor="Account Type"
-          className="font-light font-min text-blue-100"
+          className="font-light font-sans text-blue-100"
         >
           Account Type
         </label>
         <select
           {...formState("accountType")}
-          className="p-4 outline-none rounded bg-blue-400/20 text-white font-min font-light"
+          className="p-4 outline-none rounded bg-blue-400/20 text-white font-sans font-light"
         >
           {accountTypeOptions.map((actType) => (
             <option value={actType} key={actType}>
@@ -43,7 +43,7 @@ const AccountInfoForm = ({ updateFn, formState, errors }: formState) => {
             </option>
           ))}
         </select>
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.accountType?.message}
         </p>
       </div>
@@ -51,15 +51,15 @@ const AccountInfoForm = ({ updateFn, formState, errors }: formState) => {
       <div className="flex flex-col gap-2 my-4">
         <label
           htmlFor="account description"
-          className="font-light font-min text-blue-100"
+          className="font-light font-sans text-blue-100"
         >
           Account Description
         </label>
         <textarea
           {...formState("accountDescription")}
-          className="p-4 outline-none resize-none  rounded bg-blue-400/20 text-white font-min font-light"
+          className="p-4 outline-none resize-none  rounded bg-blue-400/20 text-white font-sans font-light"
         />
-        <p className="text-red-500 text-sm font-min capitalize font-light">
+        <p className="text-red-500 text-sm font-sans capitalize font-light">
           {errors.accountDescription?.message}
         </p>
       </div>
@@ -67,14 +67,14 @@ const AccountInfoForm = ({ updateFn, formState, errors }: formState) => {
       <div className="flex justify-between">
         <button
           type="button"
-          className="border-blue-500 border font-min font-medium p-3 rounded text-white"
+          className="border-blue-500 border font-sans font-medium p-3 rounded text-white"
           onClick={moveToPrevForm}
         >
           Prev
         </button>
         <button
           type="submit"
-          className="bg-blue-500 font-min font-medium p-3 rounded text-white"
+          className="bg-blue-500 font-sans font-medium p-3 rounded text-white"
         >
           Create Account
         </button>
