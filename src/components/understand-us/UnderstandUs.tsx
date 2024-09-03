@@ -84,21 +84,6 @@ const Expectations = () => {
           </div>
         ))}
       </div>
-      {/* Questions */}
-      <div className="bg-white md:w-[50%] md:rounded-full p-4 mx-auto my-[3rem] flex items-center flex-col md:flex-row justify-between border-[2px] border-blue-500 border-dashed gap-8">
-        <div className="md:text-left text-center">
-          <h4 className="font-sans text-lg capitalize">
-            Have any question about us?
-          </h4>
-          <p className="font-sans font-light">Don't hesitate to contact us</p>
-        </div>
-        <Link
-          to="/register"
-          className="bg-blue-500 p-4 md:rounded-full text-white font-light font-sans"
-        >
-          Contact Us
-        </Link>
-      </div>
     </div>
   );
 };

@@ -35,33 +35,34 @@ const Navbar = (props: Props) => {
 
   return (
     <>
-      <nav className="w-[90%] h-[80px] fixed top-0 z-30  mt-3 bg-neutral-100 right-0 left-0  mx-auto rounded-full px-6 py-4 flex justify-between items-center">
+      <nav className="h-[80px] fixed top-0 z-30  bg-neutral-100 right-0 left-0  mx-auto  px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div>
           <Link to="/" className="tracking-widest font-sans text-blue-950">
             INT. Leo
           </Link>
         </div>
-        {/* links */}
-        <div className="space-x-6 hidden md:block">
-          {links.map((link) => (
-            <Link
-              to={link.path}
-              key={link.id}
-              className="font-sans font-light capitalize hover:font-medium hover:underline hover:text-blue-500 transition-all ease-in"
-            >
-              {link.title}
-            </Link>
-          ))}
-        </div>
+
         {/* Sign in & Register */}
-        <div className="space-x-4 hidden md:block">
+        <div className=" items-center gap-6 hidden lg:flex">
+          {/* links */}
+          <div className="space-x-6 hidden md:block">
+            {links.map((link) => (
+              <Link
+                to={link.path}
+                key={link.id}
+                className="font-sans font-light capitalize hover:font-medium hover:underline hover:text-blue-500 transition-all ease-in"
+              >
+                {link.title}
+              </Link>
+            ))}
+          </div>
           <Link to="/login" className="text-light font-sans text-blue-500">
             Sign In
           </Link>
           <Link
             to="/register"
-            className="bg-blue-500 rounded-full p-4 font-sans text-white"
+            className="bg-blue-500 rounded-2xl py-4 px-8 font-sans text-white"
           >
             Register
           </Link>

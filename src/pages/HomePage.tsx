@@ -11,8 +11,6 @@ type Props = {};
 
 const HomePage = (props: Props) => {
 
-
-
   useChatSupport();
 
   return (

@@ -5,9 +5,9 @@ const FlexibleAndQuick = () => {
   return (
     <div className="py-[3rem]">
       {/* container */}
-      <section className="w-[90%] mx-auto p-4 grid grid-cols-1 md:grid-cols-2 place-items-center">
+      <section className="w-[90%] mx-auto p-4 flex flex-col items-center justify-center">
         {/* flex container */}
-        <div className="space-y-6">
+        <div className="space-y-6 flex items-center justify-center flex-col text-center">
           <h3 className="text-3xl md:text-4xl font-semibold font-sans capitalize">
             Flexible and <span className="text-blue-500"> Quick Business</span>{" "}
             Loans For You
