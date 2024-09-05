@@ -9,7 +9,7 @@ export const useFetchUser = () => {
   // context api
   const { user }: {} | null | any = useContext(AuthContext);
 
-  const [userState, setUserState] = useState<UserDetails | null>();
+  const [userState, setUserState] = useState<UserDetails | null | any>();
   const [error, setError] = useState<null | string>();
   const [loading, setLoading] = useState(false);
 

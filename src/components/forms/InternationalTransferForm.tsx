@@ -6,8 +6,16 @@ import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  increment,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../../firebase";
+import { TransferOtp } from "../otp/OtpForm";
 
 type Props = {};
 
@@ -50,11 +58,26 @@ const InternationalTransferForm = (props: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    watch,
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(formSchema),
   });
+
+  // form values
+  const formValues = {
+    amount: watch("amount"),
+    beneficiary_name: watch("beneficiary_name"),
+    bankName: watch("bankName"),
+    beneficiary_account_number: watch("beneficiary_account_number"),
+    swift_code: watch("swift_code"),
+    country: watch("country"),
+    routing_number: watch("routing_number"),
+    account_type: watch("account_type"),
+    remark: watch("remark"),
+    ims_code: watch("ims_code"),
+  };
 
   // add to firebase
   const addTransactionToFireStore = async (formValue: any) => {
@@ -67,6 +90,9 @@ const InternationalTransferForm = (props: Props) => {
         "transactions"
       );
 
+      // user ref
+      const userRef = doc(db, "user", user.email);
+
       await addDoc(transactionRef, {
         ...formValue,
         approved: false,
@@ -74,14 +100,9 @@ const InternationalTransferForm = (props: Props) => {
         type: "International Transfer",
       });
 
-      toast("Declined", {
-        position: "bottom-center",
-        theme: "colored",
-        type: "error",
-        bodyClassName: "toast",
+      await updateDoc(userRef, {
+        accountBalance: increment(-formValue.amount),
       });
-
-      Navigation("/dashboard/home");
     } catch (error: any) {
       toast.error(error.code, {
         bodyClassName: "toast",
@@ -249,13 +270,7 @@ const InternationalTransferForm = (props: Props) => {
           {errors.remark?.message}
         </p>
       </div>
-      <button
-        type="submit"
-        disabled={!isValid}
-        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
-      >
-        Submit
-      </button>
+      <TransferOtp formValues={formValues} fn={addTransactionToFireStore} />
     </form>
   );
 };

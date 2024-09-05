@@ -23,6 +23,8 @@ import VerifyUser from "./pages/dashboard/VerifyUser";
 import VerificationForm from "./components/id-verification/VerificationForm";
 import SelfieVerification from "./components/selfie-verification/SelfieVerification";
 import CreateCard from "./pages/dashboard/CreateCard";
+import Failed from "./pages/dashboard/Failed";
+import Success from "./pages/dashboard/Success";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ export const router = createBrowserRouter([
       {
         path: "verify-user",
         element: <VerifyUser />,
+      },
+      {
+        path: "failed",
+        element: <Failed />,
+      },
+      {
+        path: "success",
+        element: <Success />,
       },
       {
         path: "home",

@@ -2,11 +2,11 @@ import {
   LayoutDashboard,
   User,
   Receipt,
-  CandlestickChart,
   ArrowDownToLine,
   LogOut,
   CreditCard,
   EuroIcon,
+  ArrowLeftRight,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -14,7 +14,6 @@ import { auth } from "../../firebase";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "../ui/button";
@@ -42,7 +41,7 @@ const links = [
   {
     path: "transfer",
     title: "Transfer",
-    icon: <CandlestickChart strokeWidth={2} color="#fff" />,
+    icon: <ArrowLeftRight strokeWidth={2} color="#fff" />,
   },
   {
     path: "card",
@@ -79,7 +78,7 @@ const SideNav = () => {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-blue-950 text-white sm:flex">
         <nav className="flex flex-col items-center gap-8 px-2 sm:py-5">
           {links.map((link) => (
-            <Tooltip>
+            <Tooltip key={link.title}>
               <TooltipTrigger asChild>
                 <Link
                   to={link.path}

@@ -1,5 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  increment,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import * as yup from "yup";
@@ -7,6 +14,7 @@ import { db } from "../../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { TransferOtp } from "../otp/OtpForm";
 
 type Props = {};
 
@@ -37,6 +45,7 @@ const DomesticTransferForm = (props: Props) => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -44,7 +53,17 @@ const DomesticTransferForm = (props: Props) => {
   });
 
   const { user }: any = useContext(AuthContext);
-  const Navigation = useNavigate();
+
+  // form values
+  const formValues = {
+    amount: watch("amount"),
+    beneficiary_name: watch("beneficiary_name"),
+    bankName: watch("bankName"),
+    beneficiary_account_number: watch("beneficiary_account_number"),
+    account_type: watch("account_type"),
+    remark: watch("remark"),
+    ims_code: watch("ims_code"),
+  };
 
   // Add to firebase
   const AddToFireStore = async (formValue: any) => {
@@ -57,6 +76,8 @@ const DomesticTransferForm = (props: Props) => {
         "transactions"
       );
 
+      const userRef = doc(db, "user", user.email);
+
       await addDoc(transactionRef, {
         ...formValue,
         approved: false,
@@ -64,14 +85,9 @@ const DomesticTransferForm = (props: Props) => {
         type: "Domestic Transfer",
       });
 
-      toast("Declined", {
-        position: "bottom-center",
-        theme: "colored",
-        type: "error",
-        bodyClassName: "toast",
+      await updateDoc(userRef, {
+        accountBalance: increment(-formValue.amount),
       });
-
-      Navigation("/dashboard/home");
     } catch (error: any) {
       toast.error(error.code, {
         bodyClassName: "toast",
@@ -181,13 +197,7 @@ const DomesticTransferForm = (props: Props) => {
           <option value="Premium leo">Premium leo account</option>
         </select>
       </div>
-      <button
-        type="submit"
-        disabled={!isValid}
-        className="bg-blue-500 font-sans font-medium p-3 rounded text-white block w-full"
-      >
-        Submit
-      </button>
+      <TransferOtp formValues={formValues} fn={AddToFireStore} />
     </form>
   );
 };
