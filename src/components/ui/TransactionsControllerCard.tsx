@@ -66,7 +66,7 @@ const TransactionsControllerCard = ({}: Props) => {
   return (
     <AnimatePresence key="modal">
       <div className="p-4 bg-slate-900 rounded h-auto">
-        <div className="flex items-center justify-between">
+        <div className="flex lg:items-center lg:justify-between lg:flex-row flex-col gap-8 lg:gap-2">
           {/* balance  */}
           <div className="space-y-3">
             <p className="text-blue-50 font-sans font-light">Balance</p>
@@ -74,13 +74,13 @@ const TransactionsControllerCard = ({}: Props) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-sans text-xl md:text-2xl text-blue-200"
+              className=" text-xl md:text-2xl text-blue-200 font-mono"
             >
               {user && toDollar(user.accountBalance)}
             </motion.p>
           </div>
           {/* fixed balance */}
-          <div className="space-y-3 text-center">
+          <div className="space-y-3 lg:text-center">
             <p className="text-blue-50 font-sans font-light capitalize">
               fixed deposit balance
             </p>
@@ -88,7 +88,7 @@ const TransactionsControllerCard = ({}: Props) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-sans text-xl md:text-2xl text-blue-200"
+              className=" text-xl md:text-2xl text-blue-200 font-mono"
             >
               {user && toDollar(user.fixedDepositBalance)}
             </motion.p>
@@ -100,7 +100,7 @@ const TransactionsControllerCard = ({}: Props) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               key="modal"
-              className="font-sans text-xl md:text-2xl text-blue-200"
+              className=" text-xl md:text-2xl text-blue-200 font-mono"
             >
               {user && toDollar(user.loanBalance)}
             </motion.p>

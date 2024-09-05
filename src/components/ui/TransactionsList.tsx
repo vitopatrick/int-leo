@@ -32,7 +32,7 @@ const TransactionsList = (props: Props) => {
             Recent Transactions
           </h3>
           {transactions && (
-            <p className="border border-blue-500 py-2 px-4 font-sans rounded text-blue-500">
+            <p className="border border-blue-500 py-2 px-4 font-sans rounded text-blue-500 rounded-full">
               {transactions.length}
             </p>
           )}
@@ -52,7 +52,7 @@ const TransactionsList = (props: Props) => {
                     </p>
                   </div>
                   <div className="ml-auto font-medium">
-                    {toDollar(transaction.amount)}
+                    <p className="font-mono">{toDollar(transaction.amount)}</p>
                     <p className="text-neutral-400">{transaction.date}</p>
                   </div>
                 </div>

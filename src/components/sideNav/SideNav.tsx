@@ -93,10 +93,10 @@ const SideNav = () => {
           ))}
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant={"ghost"}>
+              <button onClick={signOutOfApp}>
                 <LogOut strokeWidth={1.2} />
                 <span className="sr-only">Logout</span>
-              </Button>
+              </button>
             </TooltipTrigger>
             <TooltipContent side="right">Logout</TooltipContent>
           </Tooltip>

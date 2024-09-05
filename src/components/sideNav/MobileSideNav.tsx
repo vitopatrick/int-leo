@@ -103,6 +103,14 @@ const MobileSideNav = () => {
                 <p className="font-light">{link.title}</p>
               </Link>
             ))}
+
+            <button
+              className="flex items-center justify-center flex-col gap-1"
+              onClick={signOutOfApp}
+            >
+              <LogOut strokeWidth={0.9} />
+              <p className="font-light">logout</p>
+            </button>
           </div>
         </div>
       </DrawerContent>

@@ -13,7 +13,7 @@ export default function BalanceCard({ title, amount }: any) {
         <DollarSign className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{toDollar(amount)}</div>
+        <div className="text-2xl font-bold font-mono">{toDollar(amount)}</div>
       </CardContent>
     </Card>
   );
