@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useFetchTransactions } from "../../hooks/useFetchTransactions";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "./badge";
 
 type Props = {};
 
@@ -12,6 +13,8 @@ const TransactionsList = (props: Props) => {
   const [modalTransactions, setModalTransactions] = useState();
 
   const { transactions } = useFetchTransactions();
+
+  console.log(transactions);
 
   const setModalTransactionsOpen = (theTransactions: any) => {
     const transaction = transactions.find(
@@ -42,13 +45,20 @@ const TransactionsList = (props: Props) => {
           <CardContent className="grid gap-8">
             {transactions &&
               transactions.map((transaction: any, index: number) => (
-                <div className="flex items-center gap-4" key={index}>
-                  <div className="grid gap-1">
+                <div
+                  className="flex items-center gap-4 border-b-[2px] py-2 border-neutral-100"
+                  key={index}
+                >
+                  <div className="flex flex-col gap-6">
                     <p className="text-sm font-medium leading-none">
                       {transaction.remark}
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      {transaction.id}
+                    <p className="text-sm text-muted-foreground space-x-4">
+                      <span>{transaction.id}</span>
+
+                      <Badge variant={"outline"} className="capitalize">
+                        {transaction.type}
+                      </Badge>
                     </p>
                   </div>
                   <div className="ml-auto font-medium">
