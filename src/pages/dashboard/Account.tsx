@@ -1,6 +1,7 @@
 import { Banknote, Landmark, MailCheck, Phone } from "lucide-react";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 type Props = {};
 
@@ -22,11 +23,8 @@ const Account = (props: Props) => {
               <div className="font-sans space-y-2 text-center">
                 <h4 className="text-2xl capitalize">{user.name}</h4>
                 {!user.verified && (
-                  <Link
-                    to="/dashboard/verify-user"
-                    className="bg-red-400 rounded-full p-2 mt-[3rem] block font-light text-white"
-                  >
-                    Start Verification
+                  <Link to="/dashboard/verify-user">
+                    <Badge variant={"destructive"}>Start Verification</Badge>
                   </Link>
                 )}
               </div>
