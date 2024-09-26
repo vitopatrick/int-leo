@@ -33,10 +33,6 @@ export function TransferOtp({ formValues, fn }: any) {
 
         const userRef = doc(db, "user", user.email);
 
-        await updateDoc(userRef, {
-          accountBalance: increment(-formValues.amount),
-        });
-
         return navigate("/dashboard/success", { state: formValues });
       } else {
         throw Error();
