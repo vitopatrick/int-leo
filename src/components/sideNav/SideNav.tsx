@@ -16,7 +16,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "../ui/button";
 
 type controls = {
   isBarOpen: boolean;
@@ -26,37 +25,37 @@ const links = [
   {
     path: "home",
     title: "Dashboard",
-    icon: <LayoutDashboard strokeWidth={2} color="#fff" />,
+    icon: <LayoutDashboard strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "account",
     title: "Account",
-    icon: <User strokeWidth={2} color="#fff" />,
+    icon: <User strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "deposit",
     title: "Online Deposit",
-    icon: <Receipt strokeWidth={2} color="#fff" />,
+    icon: <Receipt strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "transfer",
     title: "Transfer",
-    icon: <ArrowLeftRight strokeWidth={2} color="#fff" />,
+    icon: <ArrowLeftRight strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "card",
     title: "Virtual Card",
-    icon: <CreditCard strokeWidth={2} color="#fff" />,
+    icon: <CreditCard strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "withdraw",
     title: "Withdraw",
-    icon: <ArrowDownToLine strokeWidth={2} color="#fff" />,
+    icon: <ArrowDownToLine strokeWidth={1.4} color="#fff" />,
   },
   {
     path: "loan",
     title: "Loan",
-    icon: <EuroIcon strokeWidth={2} color="#fff" />,
+    icon: <EuroIcon strokeWidth={1.4} color="#fff" />,
   },
 ];
 

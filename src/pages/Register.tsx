@@ -67,7 +67,7 @@ const Register = (props: Props) => {
       // submit to firebase
       const { user } = await createUserWithEmailAndPassword(
         auth,
-        formValue.email,
+        formValue.email.toLocaleLowerCase(),
         formValue.password
       );
       // save to database
@@ -80,6 +80,7 @@ const Register = (props: Props) => {
         loanBalance: 0,
         verified: false,
         accountNumber: accountNumber,
+        email: formValue.email.toLocaleLowerCase(),
       });
 
       toast.success("Auth Successful", {

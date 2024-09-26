@@ -13,7 +13,7 @@ import * as yup from "yup";
 import { db } from "../../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { TransferOtp } from "../otp/OtpForm";
 
 type Props = {};
@@ -46,7 +46,7 @@ const DomesticTransferForm = (props: Props) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(formSchema),
@@ -67,34 +67,20 @@ const DomesticTransferForm = (props: Props) => {
 
   // Add to firebase
   const AddToFireStore = async (formValue: any) => {
-    try {
-      // collection ref
-      const transactionRef = collection(
-        db,
-        "user",
-        `${user.email}`,
-        "transactions"
-      );
+    // collection ref
+    const transactionRef = collection(
+      db,
+      "user",
+      `${user.email}`,
+      "transactions"
+    );
 
-      const userRef = doc(db, "user", user.email);
-
-      await addDoc(transactionRef, {
-        ...formValue,
-        approved: false,
-        date: serverTimestamp(),
-        type: "Domestic Transfer",
-      });
-
-      await updateDoc(userRef, {
-        accountBalance: increment(-formValue.amount),
-      });
-    } catch (error: any) {
-      toast.error(error.code, {
-        bodyClassName: "toast",
-        position: "bottom-center",
-        theme: "colored",
-      });
-    }
+    await addDoc(transactionRef, {
+      ...formValue,
+      approved: false,
+      date: serverTimestamp(),
+      type: "Domestic Transfer",
+    });
   };
 
   return (

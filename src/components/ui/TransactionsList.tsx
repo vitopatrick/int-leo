@@ -34,11 +34,7 @@ const TransactionsList = (props: Props) => {
           <h3 className="font-sans uppercase underline text-blue-500">
             Recent Transactions
           </h3>
-          {transactions && (
-            <p className="border border-blue-500 py-2 px-4 font-sans rounded text-blue-500 rounded-full">
-              {transactions.length}
-            </p>
-          )}
+          {transactions && <Badge>{transactions.length}</Badge>}
         </div>
         {/* Body */}
         <Card className="my-3 py-4">
@@ -54,7 +50,9 @@ const TransactionsList = (props: Props) => {
                       {transaction.remark}
                     </p>
                     <p className="text-sm text-muted-foreground space-x-4">
-                      <span>{transaction.id}</span>
+                      <span className="font-light font-mono tracking-wider uppercase">
+                        {transaction.id}
+                      </span>
 
                       <Badge variant={"outline"} className="capitalize">
                         {transaction.type}
