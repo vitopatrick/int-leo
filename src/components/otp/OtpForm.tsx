@@ -13,8 +13,6 @@ import { useState } from "react";
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { doc, increment, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
 
 export function TransferOtp({ formValues, fn }: any) {
   const [otp, setOpt] = useState<any>();
@@ -22,25 +20,18 @@ export function TransferOtp({ formValues, fn }: any) {
 
   const { userState: user } = useFetchUser();
 
+  console.log(user?.otp, +otp);
+
   const submit = async () => {
-    try {
-      if (parseInt(otp) === user?.otp) {
-        toast.success("Transaction Successful", {
-          bodyClassName: "toast",
-        });
+    if (+otp === user.otp) {
+      fn(formValues);
 
-        await fn(formValues);
-
-        const userRef = doc(db, "user", user.email);
-
-        return navigate("/dashboard/success", { state: formValues });
-      } else {
-        throw Error();
-      }
-    } catch (error) {
-      toast.error("Transaction Failed", {
+      return navigate("/dashboard/success", { state: formValues });
+    } else {
+      toast.error("Wrong Otp", {
         bodyClassName: "toast",
       });
+
       return navigate("/dashboard/failed");
     }
   };
