@@ -14,8 +14,6 @@ const TransactionsList = (props: Props) => {
 
   const { transactions } = useFetchTransactions();
 
-  console.log(transactions);
-
   const setModalTransactionsOpen = (theTransactions: any) => {
     const transaction = transactions.find(
       (trans: any) => trans.id == theTransactions
@@ -37,36 +35,44 @@ const TransactionsList = (props: Props) => {
           {transactions && <Badge>{transactions.length}</Badge>}
         </div>
         {/* Body */}
-        <Card className="my-3 py-4">
-          <CardContent className="grid gap-8">
-            {transactions &&
-              transactions.map((transaction: any, index: number) => (
-                <div
-                  className="flex items-center gap-4 border-b-[2px] py-2 border-neutral-100"
-                  key={index}
-                >
-                  <div className="flex flex-col gap-6">
-                    <p className="text-sm font-medium leading-none">
-                      {transaction.remark}
-                    </p>
-                    <p className="text-sm text-muted-foreground space-x-4">
-                      <span className="font-light font-mono tracking-wider uppercase">
-                        {transaction.id}
-                      </span>
+        {transactions.length < 1 ? (
+          <div className="mt-8">
+            <p className="text-center">No Transactions Yet</p>
+          </div>
+        ) : (
+          <Card className="my-3 py-4">
+            <CardContent className="grid gap-8">
+              {transactions &&
+                transactions.map((transaction: any, index: number) => (
+                  <div
+                    className="flex items-center gap-4 border-b-[2px] py-2 border-neutral-100"
+                    key={index}
+                  >
+                    <div className="flex flex-col gap-6">
+                      <p className="text-sm font-medium leading-none">
+                        {transaction.remark}
+                      </p>
+                      <p className="text-sm text-muted-foreground space-x-4">
+                        <span className="font-light font-mono tracking-wider uppercase">
+                          {transaction.id}
+                        </span>
 
-                      <Badge variant={"outline"} className="capitalize">
-                        {transaction.type}
-                      </Badge>
-                    </p>
+                        <Badge variant={"outline"} className="capitalize">
+                          {transaction.type}
+                        </Badge>
+                      </p>
+                    </div>
+                    <div className="ml-auto font-medium">
+                      <p className="font-mono">
+                        {toDollar(transaction.amount)}
+                      </p>
+                      <p className="text-neutral-400">{transaction.date}</p>
+                    </div>
                   </div>
-                  <div className="ml-auto font-medium">
-                    <p className="font-mono">{toDollar(transaction.amount)}</p>
-                    <p className="text-neutral-400">{transaction.date}</p>
-                  </div>
-                </div>
-              ))}
-          </CardContent>
-        </Card>
+                ))}
+            </CardContent>
+          </Card>
+        )}
       </div>
       <Modal open={isOpen} close={setIsOpen} transaction={modalTransactions} />
     </>

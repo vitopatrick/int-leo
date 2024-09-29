@@ -71,7 +71,7 @@ const Register = (props: Props) => {
         formValue.password
       );
       // save to database
-      const userRef = doc(db, "user", formValue.email);
+      const userRef = doc(db, "user", formValue.email.toLowerCase());
 
       await setDoc(userRef, {
         ...formValue,
@@ -80,7 +80,7 @@ const Register = (props: Props) => {
         loanBalance: 0,
         verified: false,
         accountNumber: accountNumber,
-        email: formValue.email.toLocaleLowerCase(),
+        email: formValue.email.toLowerCase(),
       });
 
       toast.success("Auth Successful", {
@@ -96,8 +96,6 @@ const Register = (props: Props) => {
         type: "error",
       });
     }
-
-    console.log(formValue);
   };
 
   return (
