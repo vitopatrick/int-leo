@@ -52,14 +52,23 @@ const TransactionsList = (props: Props) => {
                       <p className="text-sm font-medium leading-none">
                         {transaction.remark}
                       </p>
-                      <p className="text-sm text-muted-foreground space-x-4">
+                      <p className="text-sm text-muted-foreground lg:space-x-4">
                         <span className="font-light font-mono tracking-wider uppercase">
-                          {transaction.id}
+                          {transaction.id.slice(0, 6)}...
                         </span>
 
                         <Badge variant={"outline"} className="capitalize">
                           {transaction.type}
                         </Badge>
+                        {
+                          <Badge
+                            variant={
+                              transaction.approved ? "default" : "destructive"
+                            }
+                          >
+                            {transaction.approved ? "Approved" : "Pending"}
+                          </Badge>
+                        }
                       </p>
                     </div>
                     <div className="ml-auto font-medium">
